@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "categorias",
+  "info": {
+    "name": "categoria"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "UID": {
+      "type": "uid",
+      "targetField": "nome",
+      "required": true
+    },
+    "produtos": {
+      "via": "categoria",
+      "collection": "produto"
+    }
+  }
+}

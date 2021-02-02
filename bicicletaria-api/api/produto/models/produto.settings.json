@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "produtos",
+  "info": {
+    "name": "produto",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "nome": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "UID": {
+      "type": "uid",
+      "targetField": "nome",
+      "required": true
+    },
+    "preco": {
+      "type": "decimal",
+      "required": true,
+      "min": 1
+    },
+    "categoria": {
+      "model": "categoria",
+      "via": "produtos"
+    },
+    "promocao": {
+      "type": "boolean",
+      "required": true
+    },
+    "quantidade": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "imagem": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "destaque": {
+      "type": "boolean",
+      "required": true
+    },
+    "marca": {
+      "model": "marca",
+      "via": "produtos"
+    }
+  }
+}
